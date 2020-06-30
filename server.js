@@ -8,18 +8,11 @@ let notes = [{
     pastNotes: "Testing stuff"
 }]
 
+app.use(express.static("public"))
 
 app.get("/api/notes", function(req, res){
     return res.json(notes)
 });
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
-})
-
-app.get("/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "reserve.html"));
-})
 
 app.listen(PORT, () => {
     console.log(`App is listening on Port ${PORT}`)
