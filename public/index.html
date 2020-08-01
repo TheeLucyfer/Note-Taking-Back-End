@@ -23,6 +23,19 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/js/index.js"></script>
+  <script>
+    const noteList = document.querySelector(".list-group-item")
+    $.get("/api/notes", (data) => {
+      console.log(data)
+      
+      for (let index = 0; index <data.length; index++){
+        const listItem = document.createElement("li");
+        listItem.textContent +=data[index].pastNotes
+        noteList.appendChild(listItem)
+      }
+      
+    });
+  </script>
 </body>
 
 </html>
